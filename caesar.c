@@ -68,9 +68,13 @@ char *caesar_decrypt(char *str, int shift)
 }
 void check_coverage(int y)
 /* #define X 1
+we will define X during Compliation cammand / script to test both variants of this code.
+this could also be achieved with a makefile
+coverage is always measured on 1 product variant as this is the binary for the final target.
+
 */
 {
-#ifdef X
+#ifdef BRANCH
   y =1; 
 #else
   y = 2 ;
