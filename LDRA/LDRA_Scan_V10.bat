@@ -1,0 +1,19 @@
+REM - all folders and historical data erased in clean.bat
+start /wait %tool% C:\Demo\demo-caesar\LDRA\Caesar_V10.tcf -review -CSTANDARDS_MODEL=CWE-3.4
+REM start /wait %tool% ut_wb_encrypt_Ceasar.tcf 212q
+start /wait C:\LDRA_Toolsuite_C_CPP_10.0.2\tbreports C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.ldra -codereview_report -annotated_code_report -codereviewmodel_report -guidelinecompliance_report -testmanager_report
+
+REM start /wait c:\LDRA_Toolsuite_C_CPP_10.0.2\contbrun C:\Demo\demo-caesar\LDRA\ut_wb_encrypt_Ceasar.tcf -regress -box=white -quit
+REM start /wait C:\LDRA_Toolsuite_C_CPP_10.0.2\tbreports C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.ldra -dyninit -thisdir -testcase_coverage_overview_report -coverage_report
+REM start /wait C:\LDRA_Toolsuite_C_CPP_10.0.2\tbreports C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.ldra -codereview_report -annotated_code_report -codereviewmodel_report -guidelinecompliance_report -testmanager_report
+
+REM start /wait C:\LDRA_Toolsuite_C_CPP_10.0.2\tbreports C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.ldra -generate_dyndflow_report
+REM start /wait C:\LDRA_Toolsuite_C_CPP_10.0.2\tbreports C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.ldra –preset="Classic" -tbpublish
+REM start /wait C:\LDRA_Toolsuite_C_CPP_10.0.2\tbreports C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.ldra –preset="Code Coverage" -tbpublish
+REM if exist C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10_publish\index.htm start chrome.exe "C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10_publish\index.htm"
+
+REM iso26262 Reporting feature in V10
+start /wait C:\LDRA_Toolsuite_C_CPP_10.0.2\tbreports C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.ldra -export_iso26262_compliance_spec_file=Caesar_V10_iso26262.xml
+start /wait C:\LDRA_Toolsuite_C_CPP_10.0.2\tbreports C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.ldra -iso26262_compliance_spec_file=Caesar_V10_iso26262.xml -iso26262_compliance_report
+rem report created in reports folder as Caesar_V10.isco.htm 
+

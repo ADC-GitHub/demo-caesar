@@ -67,10 +67,9 @@ char *caesar_decrypt(char *str, int shift)
     return buf;
 }
 void check_coverage(int y)
-/* #define X 1
-*/
+#define X 1
 {
-#ifdef X
+#if (X == 1)
   y =1; 
 #else
   y = 2 ;

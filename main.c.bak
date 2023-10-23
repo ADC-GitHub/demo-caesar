@@ -25,14 +25,13 @@ void gen_test(char *str, int shift)
 int main(void)
 {
     check_magic_number();
-	
+	check_coverage (0);
     char orig_str[] = "People of Earth, your attention please";
 
     printf("Test 1: Shift with a negative input\n");
     gen_test(orig_str, -3);
     printf("\nTest 2: Shift with a positive input\n");
     gen_test(orig_str, 7);
-	
-	check_coverage (0);
+
     return 0;
 }

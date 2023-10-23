@@ -1,0 +1,12 @@
+REM set tool=C:\LDRA_Toolsuite_C_CPP_10.0.2\conrules
+SET tool=C:\LDRA_Toolsuite_C_CPP_10.0.2\contestbed
+REM start /wait C:\LDRA_Toolsuite_C_CPP_10.0.2\conrules -delete_set=Caesar -94q
+
+mkdir C:\Demo\demo-caesar\LDRA
+mkdir C:\Demo\demo-caesar\LDRA\Reports
+Copy C:\Demo\ceasar-cipher_org\LDRA\*.* C:\Demo\demo-caesar\LDRA
+REM if exist C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls rmdir /s /q C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\
+start /wait %tool% Caesar_V10 -94q
+
+REM start /wait %tool% -delete_set Caesar_V10 
+REM start /wait %tool% C:\Demo\demo-caesar\LDRA\Caesar_V10.tcf -review -CSTANDARDS_MODEL=CWE-3.4 -CEXTERNAL_STANDARD=CWE-3.4

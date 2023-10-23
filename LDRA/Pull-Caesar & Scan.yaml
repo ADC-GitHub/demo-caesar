@@ -1,0 +1,396 @@
+---
+
+pipelineid: 7
+
+title: "Pull-Caesar & Scan"
+
+recordstatus: "Y"
+
+project:
+  name: "DemoProject1"
+
+release:
+  name: "Demo-Release"
+
+stages:
+- title: "Pull Code"
+  stageorder: 0
+  color: "#8fa932"
+  tasks:
+  - tasktitle: "Start"
+    issystemtask: true
+    suborder: 0
+    tasktype: ""
+    agent: ""
+    postcondition: ""
+    precondition: ""
+    toolInstance:
+      method: null
+      pluginName: null
+      ignorefailed: null
+      skiptask: null
+      toolDetails: null
+  - tasktitle: "Remove the Pull Directory"
+    issystemtask: false
+    suborder: 0
+    tasktype: "Plugin"
+    agent: "LOGICPCNBK01"
+    postcondition: ""
+    precondition: ""
+    toolInstance:
+      method: "ExecuteCMDCommand"
+      pluginName: "CustomCommandPluginV.1.0"
+      ignorefailed: "N"
+      skiptask: "N"
+      toolDetails:
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "inputhostname"
+        paramvalue: ""
+        paramorder: 100
+        issecurityparam: "N"
+      - direction: "OUT"
+        paramdatatype: "SingleLineText"
+        paramname: "CommandOutput"
+        paramvalue: null
+        paramorder: 0
+        issecurityparam: "N"
+      - direction: "OUT"
+        paramdatatype: "SingleLineText"
+        paramname: "CommandStatus"
+        paramvalue: null
+        paramorder: 0
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "MultiLineText"
+        paramname: "Command"
+        paramvalue: "rd C:\\Demo\\demo-caesar /S/Q\nstart /wait C:\\LDRA_Toolsuite_C_CPP_10.0.2\\\
+          contestbed Caesar_V10 -delete_set -94q\nrd C:\\LDRA_Workarea_C_CPP_10.0.2\\\
+          Caesar_V10_tbwrkfls\\Caesar_V10_reports  /S/Q\nrd C:\\LDRA_Workarea_C_CPP_10.0.2\\\
+          Caesar_V10_tbwrkfls\\Caesar_V10_publish  /S/Q"
+        paramorder: 1
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "Error Text"
+        paramvalue: "could not delete The Set Caesar"
+        paramorder: 2
+        issecurityparam: "N"
+  - tasktitle: "Pull"
+    issystemtask: false
+    suborder: 0
+    tasktype: "Plugin"
+    agent: "LOGICPCNBK01"
+    postcondition: ""
+    precondition: ""
+    toolInstance:
+      method: "CheckOutCode"
+      pluginName: "GitHubPluginV.1.0"
+      ignorefailed: "N"
+      skiptask: "N"
+      toolDetails:
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "inputhostname"
+        paramvalue: ""
+        paramorder: 100
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "Git Repository"
+        paramvalue: "https://github.com/ADC-GitHub/demo-caesar.git"
+        paramorder: 1
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "Destination Directory"
+        paramvalue: "c:/Demo/demo-caesar"
+        paramorder: 2
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "Branch"
+        paramvalue: "master"
+        paramorder: 3
+        issecurityparam: "N"
+- title: "LDRA Analysis &"
+  stageorder: 1
+  color: "#9532a9"
+  tasks:
+  - tasktitle: "Start"
+    issystemtask: true
+    suborder: 0
+    tasktype: ""
+    agent: ""
+    postcondition: ""
+    precondition: ""
+    toolInstance:
+      method: null
+      pluginName: null
+      ignorefailed: null
+      skiptask: null
+      toolDetails: null
+  - tasktitle: "config LDRA"
+    issystemtask: false
+    suborder: 0
+    tasktype: "Plugin"
+    agent: "LOGICPCNBK01"
+    postcondition: ""
+    precondition: ""
+    toolInstance:
+      method: "ExecuteCMDCommand"
+      pluginName: "CustomCommandPluginV.1.0"
+      ignorefailed: "N"
+      skiptask: "N"
+      toolDetails:
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "inputhostname"
+        paramvalue: ""
+        paramorder: 100
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "MultiLineText"
+        paramname: "Command"
+        paramvalue: "mkdir C:\\Demo\\demo-caesar\\LDRA\nmkdir C:\\Demo\\demo-caesar\\\
+          Reports\nCopy C:\\Demo\\caesar-cipher_org\\LDRA\\*.* C:\\Demo\\demo-caesar\\\
+          LDRA\nstart /wait C:\\LDRA_Toolsuite_C_CPP_10.0.2\\contestbed Caesar_V10\
+          \ -94q\nif exist C:\\LDRA_Workarea_C_CPP_10.0.2\\Caesar_V10_tbwrkfls rmdir\
+          \ /s /q C:\\LDRA_Workarea_C_CPP_10.0.2\\Caesar_V10_tbwrkfls\n"
+        paramorder: 1
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "Error Text"
+        paramvalue: "could not create local configuration folders"
+        paramorder: 2
+        issecurityparam: "N"
+  - tasktitle: "LDRA Scan V10"
+    issystemtask: false
+    suborder: 0
+    tasktype: "Plugin"
+    agent: "LOGICPCNBK01"
+    postcondition: ""
+    precondition: ""
+    toolInstance:
+      method: "ExecuteCMDCommand"
+      pluginName: "CustomCommandPluginV.1.0"
+      ignorefailed: "N"
+      skiptask: "N"
+      toolDetails:
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "inputhostname"
+        paramvalue: ""
+        paramorder: 100
+        issecurityparam: "N"
+      - direction: "OUT"
+        paramdatatype: "SingleLineText"
+        paramname: "CommandOutput"
+        paramvalue: null
+        paramorder: 0
+        issecurityparam: "N"
+      - direction: "OUT"
+        paramdatatype: "SingleLineText"
+        paramname: "CommandStatus"
+        paramvalue: null
+        paramorder: 0
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "MultiLineText"
+        paramname: "Command"
+        paramvalue: "start /wait  C:\\LDRA_Toolsuite_C_CPP_10.0.2\\contestbed C:\\\
+          Demo\\demo-caesar\\LDRA\\Caesar_V10.tcf -95q\nstart /wait  C:\\LDRA_Toolsuite_C_CPP_10.0.2\\\
+          contestbed C:\\Demo\\demo-caesar\\LDRA\\Caesar_V10.tcf -review -CSTANDARDS_MODEL=CWE-3.4"
+        paramorder: 1
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "Error Text"
+        paramvalue: "error during LDRA scan action"
+        paramorder: 2
+        issecurityparam: "N"
+  - tasktitle: "LDRA Regress UT"
+    issystemtask: false
+    suborder: 0
+    tasktype: "Plugin"
+    agent: "LOGICPCNBK01"
+    postcondition: ""
+    precondition: ""
+    toolInstance:
+      method: "ExecuteCMDCommand"
+      pluginName: "CustomCommandPluginV.1.0"
+      ignorefailed: "N"
+      skiptask: "N"
+      toolDetails:
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "inputhostname"
+        paramvalue: ""
+        paramorder: 100
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "MultiLineText"
+        paramname: "Command"
+        paramvalue: "start /wait C:\\LDRA_Toolsuite_C_CPP_10.0.2\\contestbed ut_wb_encrypt_Ceasar.tcf\
+          \ 212q\nstart /wait c:\\LDRA_Toolsuite_C_CPP_10.0.2\\contbrun C:\\Demo\\\
+          demo-caesar\\LDRA\\ut_wb_encrypt_Caesar.tcf -regress -box=white -quit\n"
+        paramorder: 1
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "Error Text"
+        paramvalue: "error during LDRA test action"
+        paramorder: 2
+        issecurityparam: "N"
+      - direction: "OUT"
+        paramdatatype: "SingleLineText"
+        paramname: "CommandOutput"
+        paramvalue: null
+        paramorder: 0
+        issecurityparam: "N"
+      - direction: "OUT"
+        paramdatatype: "SingleLineText"
+        paramname: "CommandStatus"
+        paramvalue: null
+        paramorder: 0
+        issecurityparam: "N"
+- title: "Report"
+  stageorder: 2
+  color: "#a9324a"
+  tasks:
+  - tasktitle: "Start"
+    issystemtask: true
+    suborder: 0
+    tasktype: ""
+    agent: ""
+    postcondition: ""
+    precondition: ""
+    toolInstance:
+      method: null
+      pluginName: null
+      ignorefailed: null
+      skiptask: null
+      toolDetails: null
+  - tasktitle: "TBpublish Classic Reports"
+    issystemtask: false
+    suborder: 0
+    tasktype: "Plugin"
+    agent: "LOGICPCNBK01"
+    postcondition: ""
+    precondition: ""
+    toolInstance:
+      method: "ExecuteCMDCommand"
+      pluginName: "CustomCommandPluginV.1.0"
+      ignorefailed: "N"
+      skiptask: "N"
+      toolDetails:
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "inputhostname"
+        paramvalue: ""
+        paramorder: 100
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "MultiLineText"
+        paramname: "Command"
+        paramvalue: "start /wait C:\\LDRA_Toolsuite_C_CPP_10.0.2\\tbreports C:\\LDRA_Workarea_C_CPP_10.0.2\\\
+          Caesar_V10_tbwrkfls\\Caesar_V10.ldra –preset=\"Classic\" -tbpublish"
+        paramorder: 1
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "Error Text"
+        paramvalue: "error during LDRA test action"
+        paramorder: 2
+        issecurityparam: "N"
+  - tasktitle: "Word Report"
+    issystemtask: false
+    suborder: 0
+    tasktype: "Plugin"
+    agent: "LOGICPCNBK01"
+    postcondition: ""
+    precondition: ""
+    toolInstance:
+      method: "ExecuteCMDCommand"
+      pluginName: "CustomCommandPluginV.1.0"
+      ignorefailed: "N"
+      skiptask: "N"
+      toolDetails:
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "inputhostname"
+        paramvalue: ""
+        paramorder: 100
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "MultiLineText"
+        paramname: "Command"
+        paramvalue: "cd C:\\Program Files\\Pandoc\\\npandoc c:\\LDRA_Workarea_C_CPP_10.0.2\\\
+          Caesar_V10_tbwrkfls\\Caesar_V10_publish\\Index.htm -f html -t docx -o C:\\\
+          Demo\\demo-caesar\\Reports\\Caesar_Report.docx"
+        paramorder: 1
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "Error Text"
+        paramvalue: "could not find Report"
+        paramorder: 2
+        issecurityparam: "N"
+      - direction: "OUT"
+        paramdatatype: "SingleLineText"
+        paramname: "CommandOutput"
+        paramvalue: null
+        paramorder: 0
+        issecurityparam: "N"
+      - direction: "OUT"
+        paramdatatype: "SingleLineText"
+        paramname: "CommandStatus"
+        paramvalue: null
+        paramorder: 0
+        issecurityparam: "N"
+  - tasktitle: "pdf report"
+    issystemtask: false
+    suborder: 0
+    tasktype: "Plugin"
+    agent: "LOGICPCNBK01"
+    postcondition: ""
+    precondition: ""
+    toolInstance:
+      method: "ExecuteCMDCommand"
+      pluginName: "CustomCommandPluginV.1.0"
+      ignorefailed: "N"
+      skiptask: "N"
+      toolDetails:
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "inputhostname"
+        paramvalue: ""
+        paramorder: 100
+        issecurityparam: "N"
+      - direction: "OUT"
+        paramdatatype: "SingleLineText"
+        paramname: "CommandOutput"
+        paramvalue: null
+        paramorder: 0
+        issecurityparam: "N"
+      - direction: "OUT"
+        paramdatatype: "SingleLineText"
+        paramname: "CommandStatus"
+        paramvalue: null
+        paramorder: 0
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "MultiLineText"
+        paramname: "Command"
+        paramvalue: "cd C:\\Program Files\\Pandoc\\\npandoc c:\\LDRA_Workarea_C_CPP_10.0.2\\\
+          Caesar_V10_tbwrkfls\\Caesar_V10_publish\\Index.htm -f html -t pdf -o C:\\\
+          Demo\\demo-caesar\\Reports\\Caesar_Report.pdf --pdf-engine=pdflatex"
+        paramorder: 1
+        issecurityparam: "N"
+      - direction: "IN"
+        paramdatatype: "SingleLineText"
+        paramname: "Error Text"
+        paramvalue: "could not find Report"
+        paramorder: 2
+        issecurityparam: "N"
