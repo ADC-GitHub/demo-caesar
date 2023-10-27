@@ -9,11 +9,11 @@
     # Begin Source Files
 
     RelativeFile = .\caesar.c
-    File = C:\Demo\demo-caesar\caesar.c
-    UNCFile = \\LOGICPCNBK01\C\Demo\demo-caesar\caesar.c
+    File = C:\Users\Andre\Documents\GitDemo\demo-caesar\caesar.c
+    UNCFile = \\LOGICPCNBK01\C\Users\Andre\Documents\GitDemo\demo-caesar\caesar.c
     RelativeFile = .\main.c
     File = C:\Users\Andre\Documents\GitDemo\demo-caesar\main.c
-    UNCFile = \\LOGICPCNBK01\C\Demo\demo-caesar\main.c
+    UNCFile = \\LOGICPCNBK01\C\Users\Andre\Documents\GitDemo\demo-caesar\main.c
 
     # End Source Files
 

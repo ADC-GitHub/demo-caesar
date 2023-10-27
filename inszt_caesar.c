@@ -1,7 +1,7 @@
 /*
 C TESTBED VERSION  : 10.2.0
-FILE UNDER TEST  : "C:\Demo\demo-caesar\caesar.c"
-DATE OF ANALYSIS : Mon Oct 23 09:18:27 2023
+FILE UNDER TEST  : "C:\Users\Andre\Documents\GitDemo\demo-caesar\caesar.c"
+DATE OF ANALYSIS : Fri Oct 27 11:48:10 2023
 */
  
 #include <stdlib.h>
@@ -408,11 +408,15 @@ else
 void
   check_coverage (
   int y )
-#define X 1
+/* #define X 1
+we will define X during Compliation cammand / script to test both variants of this code.
+this could also be achieved with a makefile
+coverage is always measured on 1 product variant as this is the binary for the final target.
+*/
   {
    int icaesar_1zzqqzz                                                                                      
  = caesar_1zzqqzz                                                                                       (      55 ) ; /* 37 */
-    y = 1 ;
+    y = 2 ;
     caesar_1zzqqzz                                                                                       (      56 ) ; /* 30 */  
   }
 #define qqqbranches     56
