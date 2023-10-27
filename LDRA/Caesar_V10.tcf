@@ -8,15 +8,15 @@
     # Begin Source Files
 
     RelativeFile = .\caesar.c
-    File = C:\Demo\demo-caesar\caesar.c
+    File = C:\Users\Andre\Documents\GitDemo\demo-caesar\caesar.c C:\Users\Andre\Documents\GitDemo\demo-caesar\main.c -o C:\Users\Andre\Documents\GitDemo\demo-caesar\caesar.c
     RelativeFile = .\main.c
-    File = C:\Demo\demo-caesar\main.c
+    File = C:\Users\Andre\Documents\GitDemo\demo-caesar\caesar.c C:\Users\Andre\Documents\GitDemo\demo-caesar\main.c -o C:\Users\Andre\Documents\GitDemo\demo-caesar\main.c
 
     # End Source Files
 
     # Begin Sysearch Include File Entries
 
-    SearchPath = C:\Demo\demo-caesar\
+    SearchPath = C:\Users\Andre\Documents\GitDemo\demo-caesar\caesar.c C:\Users\Andre\Documents\GitDemo\demo-caesar\main.c -o C:\Users\Andre\Documents\GitDemo\demo-caesar\
     RelativeInclude = .\caesar.h
 
     # End Sysearch Include File Entries
@@ -30,7 +30,7 @@
 
     set_attributes = 3 1 1 1 1 0 0 0 0 1 0 1 1 1 0 0 0 0 0 0 0
     nb_mechanism = build
-    nb_start_in_dir = C:\Demo\demo-caesar\
+    nb_start_in_dir = C:\Users\Andre\Documents\GitDemo\demo-caesar\caesar.c C:\Users\Andre\Documents\GitDemo\demo-caesar\main.c -o C:\Users\Andre\Documents\GitDemo\demo-caesar\
     nb_build_command = gcc "$$h.$$e" -o "$$i$$x$$g"
     nb_compile_command = gcc -c "$$d$$f.$$e"
     nb_link_command = gcc $$h.o -o "$$s"
@@ -100,7 +100,7 @@
     exe_append = .exe
     cinstr_data_file = <Default>
     cppinstr_data_file = <Default>
-    cpenfile = C:\Demo\demo-caesar\LDRA\cpen.dat
+    cpenfile = C:\Users\Andre\Documents\GitDemo\demo-caesar\caesar.c C:\Users\Andre\Documents\GitDemo\demo-caesar\main.c -o C:\Users\Andre\Documents\GitDemo\demo-caesar\LDRA\cpen.dat
     cpppenfile = <Default>
     cvalsfile = <Default>
     cppvalsfile = <Default>
