@@ -9,17 +9,17 @@ $
 $ Automation Example:
 $ ===================
 $ 
-$ start /wait contbrun "C:\Demo\ceasar-cipher_org\LDRA\ut_wb_encrypt_Caesar.tcf" /regress /quit
+$ start /wait contbrun "C:\Demo\caesar-cipher_org\LDRA\ut_wb_encrypt_Caesar.tcf" /regress /quit
 $ 
 $ End Test Regression Automation Information
 
 $ Begin LDRA Testbed analysis information incorporated from:
-$ C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.tcf
+$ C:\LDRA_Workarea_C_CPP_10.0.2\demo-caesar_tbwrkfls\demo-caesar.tcf
 
  # Begin Testbed Set
 
  SET_TYPE = GROUP
- SET_NAME = Caesar_V10
+ SET_NAME = demo-caesar
  GENERATED_BY = tool suite 10.0.2
  HOSTNAME = LOGICPCNBK01
 
@@ -55,7 +55,7 @@ $ C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.tcf
     nb_link_command = gcc $$h.o -o "$$s"
     nb_ide_command = <Unknown TO GCC>
     nb_makefile_command = mingw32-make -f "$(Makefile)" $(MakeGoal) $(MakeArgs)
-    nb_makefile_name = Caesar_v10.mak
+    nb_makefile_name = demo-caesar.mak
     nb_compile_each_file = T
     nb_build_each_file = F
     nb_makefile_in_start_in_dir = T
@@ -132,12 +132,10 @@ $ C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.tcf
     cppexternal_standard = MISRA-C++:2008
     cpp_dialect = GCC
     application_accessed = Contestbed
-    application_accessed = TBrun
     application_accessed = TBvision
-    sysearch = C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10 - Sysearch.dat
+    sysearch = C:\LDRA_Workarea_C_CPP_10.0.2\demo-caesar_tbwrkfls\demo-caesar - Sysearch.dat
     sysppvar = <Default search - Source dir(s) - Installdir>
     dynamic_run_number = 1
-    data_set_name = ut_Ceasar1_harn_tc1
     history = 10
     coverage = 3
     exhwidth = 0
@@ -157,7 +155,7 @@ $ C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.tcf
  # End Testbed Set
 
 $ End LDRA Testbed analysis information incorporated from:
-$ C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.tcf
+$ C:\LDRA_Workarea_C_CPP_10.0.2\demo-caesar_tbwrkfls\demo-caesar.tcf
 
     # Begin Properties
 
@@ -220,8 +218,8 @@ $ C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.tcf
     Timing Variable Type = double
     Convert Regression Analysis = WRITE
     Unconvert Regression Analysis = COMPARE
-    Dictionary = C:\LDRA_Workarea_C_CPP_10.0.1\Ceasar_tbwrkfls\Ceasar_tbdict\
-    Local Conversions = $(Workdir)Ceasar_conv_c.dat
+    Dictionary = C:\LDRA_Workarea_C_CPP_10.0.1\Caesar_tbwrkfls\Caesar_tbdict\
+    Local Conversions = $(Workdir)Caesar_conv_c.dat
     Global Conversions = $(Tldir)tbruntyp.dat
     TBrun coloured GUI = TRUE
     TBrun first error displayed = FALSE
@@ -417,8 +415,8 @@ $ C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.tcf
 
     # Begin Attributes
 
-      Sequence Name = ut_Ceasar1
-      New Seq TCF = C:\\Demo\\demo-caesar\\LDRA\\ut_encrypt_Ceasar.tcf
+      Sequence Name = ut_Caesar1
+      New Seq TCF = C:\\Demo\\demo-caesar\\LDRA\\ut_wb_encrypt_Caesar.tcf
       Initial Compiler = MinGW200 GCC C/C++ v3.2
       Language Code = 2
       Version = 10.0.2
@@ -466,6 +464,100 @@ $ C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.tcf
           Decl_type = char *
           Usage = O
           Value = "bcd123"
+          Comparison = ldra_qq_string_compare
+
+        # End Variable
+
+    # End Test Case
+
+    # Begin Test Case
+
+      File = ..\Demo\demo-caesar\caesar.c
+      Procedure = caesar_encrypt
+      Procedure Number = 3
+      Creation Date = Mar 23 2022 18:13:38
+
+        # Begin Variable
+
+          Name = str
+          Decl_type = char*
+          Usage = Z
+          Value = "Z"
+
+        # End Variable
+
+        # Begin Variable
+
+          Name = shift
+          Decl_type = int
+          Usage = Z
+          Value = 5
+
+        # End Variable
+
+        # Begin Variable
+
+          Name = str
+          Decl_type = char*
+          Usage = O
+          Value = "Z"
+          Comparison = ldra_qq_string_compare
+
+        # End Variable
+
+        # Begin Variable
+
+          Name = %
+          Decl_type = char *
+          Usage = O
+          Value = "E"
+          Comparison = ldra_qq_string_compare
+
+        # End Variable
+
+    # End Test Case
+
+    # Begin Test Case
+
+      File = ..\Demo\demo-caesar\caesar.c
+      Procedure = caesar_encrypt
+      Procedure Number = 3
+      Creation Date = Mar 23 2022 18:37:16
+
+        # Begin Variable
+
+          Name = str
+          Decl_type = char*
+          Usage = Z
+          Value = "Z"
+
+        # End Variable
+
+        # Begin Variable
+
+          Name = shift
+          Decl_type = int
+          Usage = Z
+          Value = -1
+
+        # End Variable
+
+        # Begin Variable
+
+          Name = str
+          Decl_type = char*
+          Usage = O
+          Value = "Z"
+          Comparison = ldra_qq_string_compare
+
+        # End Variable
+
+        # Begin Variable
+
+          Name = %
+          Decl_type = char *
+          Usage = O
+          Value = "A"
           Comparison = ldra_qq_string_compare
 
         # End Variable

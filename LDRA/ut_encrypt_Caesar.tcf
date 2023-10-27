@@ -14,12 +14,12 @@ $
 $ End Test Regression Automation Information
 
 $ Begin LDRA Testbed analysis information incorporated from:
-$ C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.tcf
+$  C:\LDRA_Workarea_C_CPP_10.0.2\demo-caesar_tbwrkfls\demo-caesar.tcf
 
  # Begin Testbed Set
 
  SET_TYPE = GROUP
- SET_NAME = Caesar_V10
+ SET_NAME = demo-caesar
  GENERATED_BY = tool suite 10.0.2
  HOSTNAME = LOGICPCNBK01
 
@@ -55,7 +55,7 @@ $ C:\LDRA_Workarea_C_CPP_10.0.2\Caesar_V10_tbwrkfls\Caesar_V10.tcf
     nb_link_command = gcc $$h.o -o "$$s"
     nb_ide_command = <Unknown TO GCC>
     nb_makefile_command = mingw32-make -f "$(Makefile)" $(MakeGoal) $(MakeArgs)
-    nb_makefile_name = Caesar_v10.mak
+    nb_makefile_name = demo-caesar.mak
     nb_compile_each_file = T
     nb_build_each_file = F
     nb_makefile_in_start_in_dir = T
