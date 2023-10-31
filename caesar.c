@@ -67,11 +67,12 @@ char *caesar_decrypt(char *str, int shift)
     return buf;
 }
 void check_coverage(int y)
-/* #define X 1
-we will define X during Compliation cammand / script to test both variants of this code.
+/* #define BRANCH
+we will define BRANCH during Compilation command / script to test both variants of this code.
 this could also be achieved with a makefile
 coverage is always measured on 1 product variant as this is the binary for the final target.
-
+test coverage as it is only 0% of the procedure, however the variant is 100% covered due to 
+pre-compiler removing the Branch based on BRANCH being defined at compile time or in the code as #MACRO.
 */
 {
 #ifdef BRANCH

@@ -74,7 +74,7 @@ coverage is always measured on 1 product variant as this is the binary for the f
 
 */
 {
-#ifdef X
+#ifdef BRANCH
   y =1; 
 #else
   y = 2 ;
